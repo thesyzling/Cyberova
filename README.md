@@ -30,8 +30,6 @@ This repository is the hub of our collective efforts, housing the source code, d
 
 Join us in our quest for exploration and innovation! Whether you're a seasoned developer, a hardware enthusiast, or someone passionate about space and robotics, there's a place for you in the Cyberova Rover Team.
 
-- **Contribute:** Check out our [contribution guidelines](CONTRIBUTING.md) to get started.
-
 - **Connect:** Join our [discord](https://forum.cyberova.rover) to discuss ideas, ask questions, and connect with fellow enthusiasts.
 
 - **Stay Updated:** Follow us on [instagram](https://www.instagram.com/1.5adanacyberova/) for the latest updates and announcements.
