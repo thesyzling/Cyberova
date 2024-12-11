@@ -1,1 +1,84 @@
+Board = ["_","_","_",
+         "_","_","_",
+         "_","_","_"]
+CurrentPlayer = "X"
+GameRunning = True
+Winner = None
+
+def PrintBoard(Board):
+    print(Board[0] + " | " + Board[1] + " | " + Board[2])
+    print("----------")
+    print(Board[3] + " | " + Board[4] + " | " + Board[5])
+    print("----------")
+    print(Board[6] + " | " + Board[7] + " | " + Board[8])
+
+def PlayerInput(Board):
+    inp = int(input("Please enter a number 1-9: "))
+    if 1 <= inp <= 9 and Board[inp-1] == "_":
+        Board[inp-1] = CurrentPlayer
+    else:
+        print("Invalid value!")
+
+def CheckHorizontal(Board):
+    global Winner
+    if Board[0] == Board[1] == Board[2] and Board[0] != "_":
+        Winner = Board[0]
+        return True
+    elif Board[3] == Board[4] == Board[5] and Board[3] != "_":
+        Winner = Board[3]
+        return True
+    elif Board[6] == Board[7] == Board[8] and Board[6] != "_":
+        Winner = Board[6]
+        return True
+
+def CheckRow(Board):
+    global Winner
+    if Board[0] == Board[3] == Board[6] and Board[0] != "_":
+        Winner = Board[0]
+        return True
+    elif Board[1] == Board[4] == Board[7] and Board[1] != "_":
+        Winner = Board[1]
+        return True
+    elif Board[2] == Board[5] == Board[8] and Board[2] != "_":
+        Winner = Board[2]
+        return True
+
+def CheckDiag(Board):
+    global Winner
+    if Board[0] == Board[4] == Board[8] and Board[0] != "_":
+        Winner = Board[0]
+        return True
+    elif Board[2] == Board[4] == Board[6] and Board[2] != "_":
+        Winner = Board[2]
+        return True
+
+def CheckTie(Board):
+    global GameRunning
+    if "_" not in Board:
+        PrintBoard(Board)
+        print("It's a tie!")
+        GameRunning = False
+
+def CheckWin():
+    global GameRunning
+    if CheckHorizontal(Board) or CheckRow(Board) or CheckDiag(Board):
+        PrintBoard(Board)
+        print(f"The winner is {Winner}")
+        GameRunning = False
+
+def SwitchPlayer():
+    global CurrentPlayer
+    if CurrentPlayer == "X":
+        CurrentPlayer = "O"
+    else:
+        CurrentPlayer = "X"
+
+while GameRunning:
+    PrintBoard(Board)
+    PlayerInput(Board)
+    CheckWin()
+    if not GameRunning:
+        break
+    CheckTie(Board)
+    SwitchPlayer()
 
