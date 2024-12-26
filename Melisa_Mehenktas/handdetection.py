@@ -112,7 +112,7 @@ def main():
  
             cv2.putText(frame, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN,3,(255,0,255),3)
  
-    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+  
             cv2.imshow('frame', frame)
             cv2.waitKey(1)
 
