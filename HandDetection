@@ -1,0 +1,86 @@
+import cv2
+import mediapipe as mp
+import numpy as np
+
+class Finger_counter():
+    def __init__(self, finger_coor: list = [(8, 6), (12, 10), (16, 14), (20, 18)], thum_coor: tuple = (4, 3)) -> None:
+        self.hand = mp.solutions.hands
+        self.hands = self.hand.Hands()
+        self.hand_draw = mp.solutions.drawing_utils
+        self.finger_coor = finger_coor
+        self.thum_coor = thum_coor
+
+    def count_fingers(self, image: np.ndarray, text_center_coor: tuple = (150, 150), font: int = cv2.FONT_HERSHEY_PLAIN,
+                      font_scale: int = 12, color: tuple = (0, 0, 255), thickness: int = 12) -> tuple:
+
+        results = self.hands.process(image)
+        finger_count = 0
+        if results.multi_hand_landmarks:
+            landmarks = self._extract_landmarks(image, results)
+            self._draw_landmarks(image, results, landmarks)
+            finger_count = self._check_finger_positions(landmarks, finger_count)
+        cv2.rectangle(image,(10,10),(200,200),(185,178,168),-1)
+        cv2.putText(image, str(finger_count), (70,130), cv2.FONT_HERSHEY_SIMPLEX, 3, (0,0,0), 8)
+
+        return image, finger_count
+
+    def _draw_landmarks(self, image: np.ndarray, results: type, landmarks: list, radius: int = 5,
+                        color: tuple = (0, 255, 0)) -> np.ndarray:
+
+        for hand_in_frame in results.multi_hand_landmarks:
+            self.hand_draw.draw_landmarks(image, hand_in_frame, self.hand.HAND_CONNECTIONS)
+
+        for point in landmarks:
+            cv2.circle(image, point, radius, color, cv2.FILLED)
+
+        return image
+
+    def _check_finger_positions(self, landmarks: list, finger_count: int) -> int:
+        for coordinate in self.finger_coor:
+            if landmarks[coordinate[0]][1] < landmarks[coordinate[1]][1]:
+                finger_count += 1
+
+        if landmarks[self.thum_coor[0]][0] > landmarks[self.thum_coor[1]][0]:
+            finger_count += 1
+
+        return finger_count
+
+    def _extract_landmarks(self, image: np.ndarray, results: type, referanced_hand_index: int = 0) -> list:
+
+        landmarks = list()
+        for landmark in results.multi_hand_landmarks[referanced_hand_index].landmark:
+            # calculating the corresponding coordinates. (cate x--> width -> col_size, cate y--> height --> row _size)
+            height, width, = image.shape[:2]
+            cx, cy = int(landmark.x * width), int(landmark.y * height)
+            landmarks.append((cx, cy))
+
+        return landmarks
+
+
+def demostration():
+    finger_counter = Finger_counter()
+    cap = cv2.VideoCapture(0)
+    name_index = 0
+    while True:
+        ret, frame = cap.read()
+        drawn_image, finger_count = finger_counter.count_fingers(frame)
+
+        cv2.imshow("1", drawn_image)
+
+        if cv2.waitKey(20) & 0xFF == ord("q"):
+            break
+
+
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    demostration()
+
+
+
+
+cap.release()
+cv2.destroyAllWindows()
