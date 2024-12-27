@@ -1,4 +1,22 @@
+#13-20.12.2024:
+-) Bu hafta open cv videolarına başladım. Öğrendiğim konular şu şekilde:
+  *Canny kenar methodu
+  *Siyah-beyaz efekti
+  *Resimden arka plan çıkarma
+  *Trackbar oluşturma
+  *Tuval oluşturma
+  *Resim ve video üzerinden yüz tespiti
+  *Resim ve video üzerinden göz tespiti
+
 #20-27.12.2024:
--) Bu hafta izlemem gereken open cv videolarım vardı onları izledim.
+-) Bu hafta izlemem gereken open cv videolarım vardı onları izledim ve bitirdim. öğrendiğim konular şu şekilde:
+  *resim ve video üzerinden insan tespiti
+  *resim ve video üzerinden araç tespiti
+  *tesseract kullanımı
+  *resimden yazı okuma
+  *resim ve video üzerinden plaka tespiti
+
 -) Geçen hafta verilen hand detection görevini yaptım. Mediapipe ı daha önce kullanmadığım ve hand detection yapan güncel ve kendime uygun video bulamadıgım icin zorlandım.
   Github üzerinden örnek bularak kendime göre uyarladım. 
+
+-) 2 saat dabkaf fuarında stand görevi aldım. Ayrıca seminer konferans ve atölyelere katıldım.
