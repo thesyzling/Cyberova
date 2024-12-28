@@ -3,15 +3,13 @@ import numpy as np
 import mediapipe as mp
 
 def distance(a, b):
-    """Calculate the Euclidean distance between two points."""
     return np.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
 
 def FingerOpen(tip, pip, dynamic_thres_hold):
-    """Check if a finger is open based on PIP joint."""
     return int(distance(tip, pip) > dynamic_thres_hold)
 
 def FingerOpenUsingWrist(tip, wrist, hand_size, threshold=0.3):
-    """Check if a finger is open based on WRIST distance."""
+    
     return int(distance(tip, wrist) / hand_size > threshold)
 
 mp_drawing = mp.solutions.drawing_utils
