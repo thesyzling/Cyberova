@@ -1,4 +1,4 @@
-#'OpenCV Course - Full Tutorial with Python' kaynak olarak kullanılmıştır. (Henüz bitmedi!)
+#'https://www.youtube.com/watch?v=oXlwWbU8l2o&t=69s(OpenCV Course - Full Tutorial with Python)' kaynak olarak kullanılmıştır. (Henüz bitmedi!)
 #######################################################################################################
 import cv2 as cv
 import numpy as np
