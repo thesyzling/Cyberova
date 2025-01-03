@@ -1,1 +1,76 @@
+#TUVAL OLUŞTURMA
+import cv2
+import numpy as np
+canvas=np.zeros((512,512,3),dtype=np.uint8)+ 120 #yanına koyduğumuz sayılarla tuvalin rengini değiştiriyoruz
+print(canvas)
 
+cv2.imshow("pencere",canvas)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#GÖRÜNTÜ OLUŞTURMA
+import cv2
+import numpy as np
+
+#img=np.zeros((20,20,3),np.uint8) +255 #renkli 
+#img[0,0]=(0,0,0)
+#img[0,1]=(50,0,0)
+#img[0,2]=(100,0,0)
+#img[0,3]=(150,0,0)
+#img[0,4]=(200,0,0)
+#img[0,5]=(250,0,0)
+
+img=np.zeros((20,20),np.uint8) +255 #gri tonlamalı için
+img[0,0]=255
+img[0,1]=250
+img[0,2]=200
+img[0,3]=150
+img[0,4]=100
+img[0,5]=50
+img[0,6]=0
+
+img=cv2.resize(img,(500,500),interpolation=cv2.INTER_AREA)
+
+cv2.imshow("pencere",img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+#ŞEKİL İŞLEMLERİ
+import cv2
+import numpy as np
+canvas=np.zeros((500,500,3),np.uint8)+255
+
+#cv2.line(canvas,(100,100),(300,300),(0,0,255),thickness=5)  kordinatları ayralar
+#cv2.line(canvas,(300,320),(300,400),(255,0,),8)
+
+cv2.rectangle(canvas,(130,130),(360,360),(0,255,0),-1)
+cv2.circle(canvas,(100,100),100,(255,0,0),4)
+u1=(200,200)
+u2=(200,100)
+u3=(300,150)
+cv2.line(canvas,u1,u2,(0,0,0),4)
+cv2.line(canvas,u2,u3,(0,0,0),4)
+cv2.line(canvas,u1,u3,(0,0,0),4)
+
+cv2.imshow("pencere",canvas)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#YAZI EKLEME
+import cv2
+import numpy as np
+
+canvas=np.zeros((600,600,3),np.uint8)+255
+
+f1=cv2.FONT_ITALIC
+f2=cv2.FONT_HERSHEY_PLAIN
+f3=cv2.FONT_HERSHEY_DUPLEX
+cv2.putText(canvas,"hello",(30,200),f1,3,(255,0,0),cv2.LINE_AA)
+cv2.putText(canvas,"merhaba",(30,300),f2,5,(0,255,0),cv2.LINE_AA)
+cv2.putText(canvas,"hi",(30,400),f3,3,(0,0,255),cv2.LINE_AA)
+
+
+cv2.imshow("pencere",canvas)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
