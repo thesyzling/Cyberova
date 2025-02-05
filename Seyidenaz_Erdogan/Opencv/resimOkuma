@@ -16,3 +16,6 @@ else:
 
 
 cv2.destroyAllWindows() # açık olan bütün odsyaları kapatır.
+
+
+
