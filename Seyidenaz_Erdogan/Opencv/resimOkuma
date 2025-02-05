@@ -1,0 +1,18 @@
+#Resim Okuma 
+import cv2
+
+img = cv2.imread("d.png", 0) # resmi okur ve yükler. Tırnaktan sonra cv2.IMREAD_GRAYSCALE resmi gri yapar ya da sadece virgülden sonra 0 yaz
+
+cv2.imshow("isim", img) #imshow iki tane parametre ister. ilki resmi açtığında resmin üstünde görünmesi istenen isim ikincisi de ekranda göstermek istediğin resmin ismi.
+
+#cv2.waitKey(0) # waitkey fonksiyonu resmin ekranda ne kadar süre kalacağını ayarlamamızı sağlar.0 yazdığımızda herhangi bir işlem yapmadığımız sürece resim ekranda kalır.
+kİnp = cv2.waitKey(0)
+print(kİnp)
+
+if kİnp == 97 :
+    print(" a tuşuna basildi")
+else:
+    print(" baska bit tusa basildi")
+
+
+cv2.destroyAllWindows() # açık olan bütün odsyaları kapatır.
