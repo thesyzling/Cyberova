@@ -1,0 +1,36 @@
+import cv2
+
+vid= cv2.VideoCapture(0)
+#Çözünürlük alma
+w=int(vid.get(3)) #genişlik
+h= int(vid.get(4)) #yükseklik
+
+
+size=(w,h) 
+#Video kaydedici tanımlama
+result= cv2.VideoWriter("Attempt.avi", cv2.VideoWriter_fourcc(*"XVID"),24, size)
+#"Attempt.avi": Video dosyasının adı ve formatı. AVI formatında kaydedilecek.
+#cv2.VideoWriter_fourcc(*"XVID"): Videonun sıkıştırma formatını belirler. "XVID" yaygın bir seçimdir.
+#24: Videonun FPS değeri. Bu, saniyede 24 kare kaydedileceği anlamına gelir.
+#size: Videonun boyutları, kameranın çözünürlüğüyle eşleşmelidir.
+
+while True:
+    ret, frame = vid.read()
+    frame = cv2.flip(frame,1)
+
+    if ret == True:
+        result.write(frame)
+
+        cv2.imshow("frame",frame)
+
+        kinp= cv2.waitKey(1)
+        if kinp == ord("s"):
+            break
+    else:
+        break
+
+vid.release()
+result.release()
+cv2.destroyAllWindows()    
+
+
