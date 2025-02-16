@@ -1,0 +1,38 @@
+import cv2
+import numpy as np
+cap=cv2.VideoCapture("line.mp4")
+
+while True:
+    ret,frame=cap.read()
+    frame=cv2.resize(frame,(800,600))
+    hsv=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+    alt=np.array([18,94,140],np.uint8)
+    ust=np.array([98,255,255],np.uint8)
+
+    mask=cv2.inRange(hsv,alt,ust)
+    #inRange fonksiyonu, verilen HSV renk aralığına uyan pikselleri beyaz (255) yapar, diğerlerini siyah (0) bırakır.
+    kenar=cv2.Canny(mask,75,250)
+    #Bu satırda, maskelenmiş görüntüye kenar tespiti yapılır. Canny kenar algılama algoritması kullanılır.
+    cizgi=cv2.HoughLinesP(kenar,1,np.pi/180,50,minLineLength=50,maxLineGap=5)
+    #Hough dönüşümü kullanılarak, kenar tespit edilen görüntüdeki doğrular bulunur.
+
+
+    if cizgi is not None:
+       for i in cizgi:
+         x1,y1,x2,y2=i[0]
+         cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),5)
+         #Eğer çizgi tespiti yapılmışsa, bu çizgiler yeşil renkte çizilir.
+
+    cv2.imshow("mask",mask)
+    cv2.imshow("a",frame)
+
+
+
+    if ret==0:
+        break
+
+    if cv2.waitKey(30) & 0xFF==("h"):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
