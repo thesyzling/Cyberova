@@ -1,0 +1,7 @@
+train: C:\Users\merve dilay sevtekin\Downloads\hedef.v1i.yolov8\train\images
+val: C:\Users\merve dilay sevtekin\Downloads\hedef.v1i.yolov8\valid\images
+
+nc: 2
+names: ['target-detection']
+names: ['target-detect']
+
