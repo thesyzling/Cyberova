@@ -1,4 +1,0 @@
-# RAPOR 3
-### Bu hafta ilk olarak bilgisayarıma Ubuntu 22.0.5'i dual bootladım ve playlistten çalışmaya başladım. İlk olarak ros2yi terminal üzerinden hazır kodlar ile başarılı bir şekilde indirdim. Otomatik ros başlatma ve otomatik kelime kod tamamlama gibi kısayolları kodladım. Node kavramının ne olduğunu öğrendim ve talker listener gibi nodeları denedim. Pythonla çalışabilmek için termminal üzerinden vscode indirdim ve 0'dan bir workspace oluşturdum ve python package oluşturdum. Turtlesim kütüphanesinden yararlanarak kendi nodelarımı oluşturdum. Topic komutunu öğrendim. Publisher subscriber gibi kavramları öğrendim. Son olarak publisher ve subscriberları beraber kullanarak closed loop yapmayı öğrendim ancak küçük hatalar aldım onları düzeltecem.
-### Ek olarak aldığım ardunio projesini tamamladım. Sistem parmak sayısı kadar led yakıyor.
-### 1, 2 gün içinde ros playlistimi tamamen bitirmiş olacağım.
