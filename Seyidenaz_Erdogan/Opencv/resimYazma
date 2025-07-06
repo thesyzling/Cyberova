@@ -1,6 +1,0 @@
-#Resim Yazma
-import cv2
-img = cv2.imread("d.png",0)
-
-cv2.imwrite("d2.png", img) #imwrite resim dosyasını oluşturur.
-
