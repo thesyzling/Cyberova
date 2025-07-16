@@ -1,0 +1,22 @@
+[0.410s] Invoking command in '/home/hilal/ros2_ws/src/last_smooth_controller': AMENT_PREFIX_PATH=/home/hilal/ros2_ws/install/last_description:/home/hilal/ros2_ws/install/rplidar_slam:/home/hilal/ros2_ws/install/robotaksi_description:/home/hilal/ros2_ws/install/robot_slam:/home/hilal/ros2_ws/install/last_smooth_controller:/opt/ros/humble PYTHONPATH=/home/hilal/ros2_ws/build/last_smooth_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/last_description/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/last_smooth_controller build --build-base /home/hilal/ros2_ws/build/last_smooth_controller/build install --record /home/hilal/ros2_ws/build/last_smooth_controller/install.log --single-version-externally-managed install_data
+[0.568s] running egg_info
+[0.568s] writing ../../build/last_smooth_controller/last_smooth_controller.egg-info/PKG-INFO
+[0.568s] writing dependency_links to ../../build/last_smooth_controller/last_smooth_controller.egg-info/dependency_links.txt
+[0.569s] writing entry points to ../../build/last_smooth_controller/last_smooth_controller.egg-info/entry_points.txt
+[0.569s] writing requirements to ../../build/last_smooth_controller/last_smooth_controller.egg-info/requires.txt
+[0.569s] writing top-level names to ../../build/last_smooth_controller/last_smooth_controller.egg-info/top_level.txt
+[0.570s] reading manifest file '../../build/last_smooth_controller/last_smooth_controller.egg-info/SOURCES.txt'
+[0.571s] writing manifest file '../../build/last_smooth_controller/last_smooth_controller.egg-info/SOURCES.txt'
+[0.571s] running build
+[0.571s] running build_py
+[0.571s] running install
+[0.571s] running install_lib
+[0.572s] running install_data
+[0.572s] copying launch/gazebo_slam.launch.py -> /home/hilal/ros2_ws/install/last_smooth_controller/share/last_smooth_controller/launch
+[0.572s] running install_egg_info
+[0.573s] removing '/home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages/last_smooth_controller-0.0.0-py3.10.egg-info' (and everything under it)
+[0.573s] Copying ../../build/last_smooth_controller/last_smooth_controller.egg-info to /home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages/last_smooth_controller-0.0.0-py3.10.egg-info
+[0.573s] running install_scripts
+[0.586s] Installing set_initial_pose script to /home/hilal/ros2_ws/install/last_smooth_controller/lib/last_smooth_controller
+[0.586s] writing list of installed files to '/home/hilal/ros2_ws/build/last_smooth_controller/install.log'
+[0.601s] Invoked command in '/home/hilal/ros2_ws/src/last_smooth_controller' returned '0': AMENT_PREFIX_PATH=/home/hilal/ros2_ws/install/last_description:/home/hilal/ros2_ws/install/rplidar_slam:/home/hilal/ros2_ws/install/robotaksi_description:/home/hilal/ros2_ws/install/robot_slam:/home/hilal/ros2_ws/install/last_smooth_controller:/opt/ros/humble PYTHONPATH=/home/hilal/ros2_ws/build/last_smooth_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/last_description/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:/home/hilal/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/last_smooth_controller build --build-base /home/hilal/ros2_ws/build/last_smooth_controller/build install --record /home/hilal/ros2_ws/build/last_smooth_controller/install.log --single-version-externally-managed install_data

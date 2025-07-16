@@ -1,0 +1,70 @@
+slam_toolbox:
+  ros__parameters:
+    
+    # Plugin params
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+    
+    # ROS Parameters - OPTIMIZED for Message Queue
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /scan
+    mode: mapping
+    
+    # CRITICAL: Message filtering optimizations
+    debug_logging: false
+    throttle_scans: 10          # Process every 10th scan (was 5)
+    transform_publish_period: 0.1   # Slower publishing (was 0.05) 
+    map_update_interval: 1.0    # Faster map updates (was 2.0)
+    resolution: 0.1             # Lower resolution (was 0.05)
+    max_laser_range: 25.0       # Reduced range (was 30.0)
+    minimum_time_interval: 0.2  # Increased interval (was 0.1)
+    transform_timeout: 2.0      # Much longer timeout (was 1.0)
+    tf_buffer_duration: 60.0    # Longer buffer (was 30.0)
+    stack_size_to_use: 40000000
+    enable_interactive_mode: true
+    
+    # CRITICAL: Buffer and queue settings
+    scan_buffer_size: 200       # Increased buffer (was 100)
+    scan_buffer_maximum_scan_distance: 25.0  # Reduced distance
+    
+    # Movement thresholds - MORE AGGRESSIVE
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.5   # Increased (was 0.2) 
+    minimum_travel_heading: 0.3    # Increased (was 0.2)
+    
+    # Scan matching - SIMPLIFIED
+    link_match_minimum_response_fine: 0.2    # Increased (was 0.1)
+    link_scan_maximum_distance: 8.0          # Reduced (was 10.0)
+    loop_search_maximum_distance: 3.0        # Reduced (was 4.0)
+    do_loop_closing: false                   # DISABLED for stability
+    loop_match_minimum_chain_size: 20        # Increased (was 10)
+    loop_match_maximum_variance_coarse: 2.0  # Reduced (was 3.0)
+    loop_match_minimum_response_coarse: 0.4  # Increased (was 0.35)
+    loop_match_minimum_response_fine: 0.5    # Increased (was 0.45)
+
+    # Correlation Parameters - CONSERVATIVE
+    correlation_search_space_dimension: 0.3  # Reduced (was 0.5)
+    correlation_search_space_resolution: 0.02 # Increased (was 0.01)
+    correlation_search_space_smear_deviation: 0.05 # Reduced (was 0.1)
+
+    # Loop closure - DISABLED
+    loop_search_space_dimension: 4.0         # Reduced (was 8.0)
+    loop_search_space_resolution: 0.1        # Increased (was 0.05)
+    loop_search_space_smear_deviation: 0.01  # Reduced (was 0.03)
+
+    # Scan Matcher Parameters - RELAXED
+    distance_variance_penalty: 0.3           # Reduced (was 0.5)
+    angle_variance_penalty: 0.7              # Reduced (was 1.0)
+    fine_search_angle_offset: 0.00524        # Increased (was 0.00349)
+    coarse_search_angle_offset: 0.524        # Increased (was 0.349)
+    coarse_angle_resolution: 0.0524          # Increased (was 0.0349)
+    minimum_angle_penalty: 0.7               # Reduced (was 0.9)
+    minimum_distance_penalty: 0.3            # Reduced (was 0.5)
+    use_response_expansion: false             # DISABLED for performance 

@@ -1,0 +1,62 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100          # Gazebo uyarısı için makul bir değer
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+diff_drive_controller:
+  ros__parameters:
+    publish_rate: 30.0        # Daha hızlı odometry yayını
+    left_wheel_names:  ["front_left_wheel_joint", "mid_left_wheel_joint", "back_left_wheel_joint"]
+    right_wheel_names: ["front_right_wheel_joint", "mid_right_wheel_joint", "back_right_wheel_joint"]
+
+    wheels_per_side: 3
+    wheel_separation: 0.739
+    wheel_radius: 0.185
+
+    # Daha dinamik hareket için limitler
+    linear:
+      x:
+        has_velocity_limits: true
+        max_velocity: 1.0
+        min_velocity: -1.0
+        has_acceleration_limits: true
+        max_acceleration: 2.0
+        min_acceleration: -2.0
+        has_jerk_limits: false
+
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 1.2
+        min_velocity: -1.2
+        has_acceleration_limits: true
+        max_acceleration: 2.5
+        min_acceleration: -2.5
+        has_jerk_limits: false
+
+    # DENGELİ ODOMETRY AYARLARI
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    
+    odom_frame_id: odom
+    base_frame_id: base_link
+    
+    position_feedback: true
+    use_stamped_vel: false
+    open_loop: false
+    enable_odom_tf: false    # EKF bu transformu yayınlayacağı için kapatıldı!
+    publish_odom_tf: false
+    
+    cmd_vel_timeout: 0.5
+    publish_limited_velocity: true
+    publish_wheel_tf: false
+    velocity_rolling_window_size: 10
+    
+    linear.x.max_effort: 100.0
+    angular.z.max_effort: 50.0

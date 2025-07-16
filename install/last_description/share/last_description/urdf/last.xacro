@@ -1,0 +1,428 @@
+<?xml version="1.0" ?>
+<robot name="last" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find last_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find last_description)/urdf/last.trans" />
+  <xacro:include filename="$(find last_description)/urdf/last.gazebo" />
+  <xacro:include filename="$(find last_description)/urdf/d435_camera.xacro" />
+  <xacro:include filename="$(find last_description)/urdf/rplidar_s2.xacro" />
+  <xacro:include filename="$(find last_description)/urdf/imu.xacro" />
+
+  <!-- Base Footprint - Fiziksel olmayan, zemindeki gölge -->
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.185" rpy="0 0 0"/> <!-- Tekerlek yarıçapı kadar yukarıda -->
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi base_link'in merkezinde -->
+      <mass value="4.0"/>
+      <inertia ixx="0.32" iyy="0.81" izz="0.98" ixy="0.0" iyz="0.0" ixz="0.0"/>  <!-- Çapraz etkileşim sıfırlandı -->
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.5 0.33 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.0 0.66 0.3"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_front_leg_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.3"/>
+      <inertia ixx="0.062" iyy="0.161" izz="0.116" ixy="0.0" iyz="0.0" ixz="0.0"/>  <!-- Çapraz etkileşim sıfırlandı -->
+    </inertial>
+    <visual>
+      <origin xyz="-0.495 0.023 -0.173" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/right_front_leg_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.315 -0.326 -0.276" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.15 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_back_leg_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.8"/>
+      <inertia ixx="0.042" iyy="0.172" izz="0.139" ixy="0.0" iyz="0.0" ixz="0.0"/>  <!-- Çapraz etkileşim sıfırlandı -->
+    </inertial>
+    <visual>
+      <origin xyz="-0.221549 0.437 -0.034349" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/right_back_leg_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.112 -0.253" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.15 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_front_leg_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.3"/>
+      <inertia ixx="0.062" iyy="0.161" izz="0.116" ixy="0.0" iyz="0.0" ixz="0.0"/>  <!-- Çapraz etkileşim sıfırlandı -->
+    </inertial>
+    <visual>
+      <origin xyz="-0.495 -0.683 -0.173" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/left_front_leg_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.315 0.326 -0.276" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.15 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_back_leg_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.8"/>
+      <inertia ixx="0.042" iyy="0.172" izz="0.139" ixy="0.0" iyz="0.0" ixz="0.0"/>  <!-- Çapraz etkileşim sıfırlandı -->
+    </inertial>
+    <visual>
+      <origin xyz="-0.221549 -1.097 -0.034349" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/left_back_leg_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0.112 -0.253" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.15 0.4"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_mid_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.521356 0.586163 0.405552" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/right_mid_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_back_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.078259 -1.2465 0.405552" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/left_back_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_front_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.032099 -1.0525 0.402901" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/left_front_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_mid_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.521356 -1.246163 0.405552" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/left_mid_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_back_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.078259 0.5865 0.405552" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/right_wheel_back_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_front_wheel_v1_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>  <!-- Ağırlık merkezi merkezde -->
+      <mass value="1.5"/>
+      <inertia ixx="0.005" iyy="0.009" izz="0.005" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.032099 0.3925 0.402901" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find last_description)/meshes/right_fornt_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.185" length="0.075"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sol_front_leg_joint" type="fixed">
+    <origin xyz="0.495 -0.023 0.173" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_front_leg_v1_1"/>
+  </joint>
+
+  <joint name="sol_back_leg_joint" type="fixed">
+    <origin xyz="-0.273451 -0.414 -0.138651" rpy="0 0 0"/>
+    <parent link="right_front_leg_v1_1"/>
+    <child link="right_back_leg_v1_1"/>
+  </joint>
+
+  <joint name="sag_front_leg_joint" type="fixed">
+    <origin xyz="0.495 0.683 0.173" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_front_leg_v1_1"/>
+  </joint>
+
+  <joint name="sag_back_leg_joint" type="fixed">
+    <origin xyz="-0.273451 0.414 -0.138651" rpy="0 0 0"/>
+    <parent link="left_front_leg_v1_1"/>
+    <child link="left_back_leg_v1_1"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <origin xyz="0.537099 -0.3695 -0.575901" rpy="0 0 0"/>
+    <parent link="right_front_leg_v1_1"/>
+    <child link="right_front_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="0.537099 0.3695 -0.575901" rpy="0 0 0"/>
+    <parent link="left_front_leg_v1_1"/>
+    <child link="left_front_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <joint name="mid_right_wheel_joint" type="continuous">
+    <origin xyz="0.299807 -0.149163 -0.439901" rpy="0 0 0"/>
+    <parent link="right_back_leg_v1_1"/>
+    <child link="right_mid_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <joint name="mid_left_wheel_joint" type="continuous">
+    <origin xyz="0.299807 0.149163 -0.439901" rpy="0 0 0"/>
+    <parent link="left_back_leg_v1_1"/>
+    <child link="left_mid_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <joint name="back_right_wheel_joint" type="continuous">
+    <origin xyz="-0.299808 -0.1495 -0.439901" rpy="0 0 0"/>
+    <parent link="right_back_leg_v1_1"/>
+    <child link="right_back_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <joint name="back_left_wheel_joint" type="continuous">
+    <origin xyz="-0.299808 0.1495 -0.439901" rpy="0 0 0"/>
+    <parent link="left_back_leg_v1_1"/>
+    <child link="left_back_wheel_v1_1"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+  <!-- Intel RealSense D435 Camera -->
+  <xacro:realsense_d435 parent="base_link" name="d435" xyz="1.05 0.35 0.34" rpy="0 0 0"/>
+
+  <!-- D435 Gazebo Plugins -->
+  <xacro:d435_gazebo_plugins name="d435"/>
+
+  <!-- RPLidar S2 -->
+  <xacro:include filename="rplidar_s2.xacro" />
+  <xacro:rplidar_s2 parent="base_link" xyz="1.25 0.35 0.34" rpy="0 0 0" />
+  <!-- RPLidar S2 Gazebo Plugin - Düzeltilmiş -->
+  <xacro:rplidar_s2_gazebo_plugin />
+
+  <!-- IMU Sensor -->
+  <xacro:imu_sensor parent="base_link" name="imu" />
+
+  <ros2_control name="RobotHardware" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="front_right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="front_left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="mid_right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="mid_left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="back_right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="back_left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <command_interface name="effort">
+        <param name="min">-50</param>
+        <param name="max">50</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+      <state_interface name="effort"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>

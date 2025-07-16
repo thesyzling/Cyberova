@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: last-smooth-controller
+Version: 0.0.0
+Summary: 6 tekerlekli robot için pürüzsüz hareket controller paketi. PID kontrol, velocity filtering ve motion planning özellikleri içerir.
+Home-page: UNKNOWN
+Maintainer: gunes
+Maintainer-email: gunes@todo.todo
+License: TODO: License declaration
+Platform: UNKNOWN
+
+UNKNOWN
+

@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/gunes/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages",
+        "/home/gunes/ros2_ws/install/last_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/home/gunes/.local/lib/python3.10/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/gunes/ros2_ws/install/last_smooth_controller/lib/python3.10/site-packages",
+        "/home/gunes/ros2_ws/install/last_description/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/home/gunes/.local/lib/python3.10/site-packages"
+    ]
+}

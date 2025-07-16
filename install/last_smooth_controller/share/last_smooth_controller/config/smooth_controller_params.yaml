@@ -1,0 +1,107 @@
+# 6 Tekerlekli Robot için Smooth Controller Parametreleri
+# Bu dosya last_smooth_controller paketinin parametrelerini içerir
+
+smooth_diff_drive_controller:
+  ros__parameters:
+    # Robot fiziksel parametreleri
+    wheel_separation: 0.80      # Tekerlek ayrımı (güncellenmiş)
+    wheel_radius: 0.185         # Tekerlek yarıçapı (m)
+    wheels_per_side: 3          # Her taraftaki tekerlek sayısı
+    
+    # Yüksek hız limitleri - Artırıldı responsiveness için
+    max_linear_velocity: 8.0    # Maksimum linear hız (m/s) - ÇOK YÜKSEK!
+    max_angular_velocity: 6.0   # Maksimum angular hız (rad/s) - ÇOK HIZLI DÖNÜŞ!
+    
+    # Yüksek ivme limitleri - Çok responsive hareket için  
+    max_linear_acceleration: 10.0  # Maksimum linear ivme (m/s²)
+    max_angular_acceleration: 12.0 # Maksimum angular ivme (rad/s²)
+    
+    # Kontrol parametreleri
+    control_frequency: 100.0        # Kontrol frekansı (Hz) - Artırıldı!
+    cmd_vel_timeout: 0.5            # CMD_VEL timeout süresi (s)
+    
+    # Özellik aktif/pasif ayarları
+    enable_smooth_control: true         # Yumuşak kontrol aktif
+    enable_velocity_filtering: true     # Hız filtreleme aktif
+    enable_motion_planning: true        # Hareket planlama aktif
+    
+    # Tekerlek kayması tespiti - Daha toleranslı
+    wheel_slip_threshold: 1.5           # Tekerlek kayması eşiği - Büyük artış!
+    
+    # Frame ID'leri
+    odom_frame_id: "odom"               # Odometry frame ID
+    base_frame_id: "base_link"          # Base frame ID
+
+# PID Controller parametreleri
+pid_controller:
+  ros__parameters:
+    # Her tekerlek için PID parametreleri - Daha responsive
+    kp: 0.8        # Proportional gain - Artırıldı
+    ki: 0.1        # Integral gain - Artırıldı
+    kd: 0.05       # Derivative gain - Artırıldı
+    
+    # PID limitleri
+    max_output: 3.0    # Maksimum çıkış - Artırıldı
+    min_output: -3.0   # Minimum çıkış - Artırıldı
+    
+    # Adaptive gains
+    enable_adaptive_gains: true     # Adaptive gain aktif
+    adaptive_threshold: 0.5         # Adaptive gain eşiği
+    
+    # Tekerlek senkronizasyonu
+    enable_wheel_sync: true         # Tekerlek senkronizasyonu aktif
+    sync_threshold: 0.5             # Senkronizasyon eşiği
+
+# Velocity Filter parametreleri
+velocity_filter:
+  ros__parameters:
+    # Filter tipi: 'lowpass', 'moving_average', 'exponential', 'adaptive'
+    filter_type: "lowpass"          # Daha basit filter
+    
+    # Low-pass filter parametreleri
+    cutoff_frequency: 15.0      # Kesim frekansı (Hz) - Artırıldı
+    sample_rate: 100.0          # Örnekleme frekansı (Hz) - Artırıldı
+    
+    # Exponential filter parametreleri
+    exp_alpha: 0.3              # Exponential smoothing faktörü
+    
+    # Spike detection
+    spike_threshold: 3.0        # Spike tespit eşiği - Artırıldı
+    
+    # Adaptive filter parametreleri
+    velocity_threshold_low: 0.1     # Düşük hız eşiği
+    velocity_threshold_high: 1.5    # Yüksek hız eşiği
+    low_speed_alpha: 0.4            # Düşük hızda alpha
+    medium_speed_alpha: 0.6         # Orta hızda alpha
+    high_speed_alpha: 0.8           # Yüksek hızda alpha
+
+# Motion Planner parametreleri
+motion_planner:
+  ros__parameters:
+    # Planning parametreleri
+    planning_horizon: 1.0           # Planning horizon (s)
+    time_step: 0.01                 # Zaman adımı (s) - Daha hassas
+    smoothness_weight: 0.6          # Yumuşaklık ağırlığı - Azaltıldı
+    
+    # Trajectory generation
+    min_trajectory_time: 0.2        # Minimum yörünge süresi (s)
+    max_trajectory_time: 3.0        # Maksimum yörünge süresi (s)
+    
+    # Safety parametreleri
+    safety_factor: 0.8              # Güvenlik faktörü
+    min_turning_radius: 0.15        # Minimum dönüş yarıçapı (m)
+
+# Debug ve monitoring parametreleri
+debug:
+  ros__parameters:
+    enable_debug_output: false      # Debug çıktısı pasif
+    log_level: "ERROR"              # Sadece hatalar - Daha az spam
+    publish_debug_info: false       # Debug bilgilerini yayınlama
+    
+    # Performance monitoring
+    enable_performance_monitoring: false
+    performance_log_interval: 30.0  # Performance log aralığı (s)
+    
+    # Wheel slip monitoring
+    enable_slip_monitoring: false   # Tekerlek kayması izleme - Pasif
+    slip_log_threshold: 1.0         # Kayma log eşiği - Büyük artış 

@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Intel RealSense D435 Camera Macro -->
+  <xacro:macro name="realsense_d435" params="parent name xyz rpy">
+    
+    <!-- Camera Base Link -->
+    <link name="${name}_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.090 0.025 0.025"/>  <!-- Real D435 dimensions: 90mm x 25mm x 25mm -->
+        </geometry>
+        <material name="realsense_aluminum">
+          <color rgba="0.5 0.5 0.5 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.090 0.025 0.025"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.072"/>  <!-- Real D435 weight: 72g -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+      </inertial>
+    </link>
+
+    <!-- Attach to parent -->
+    <joint name="${name}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+    </joint>
+
+    <!-- Depth Camera Frame -->
+    <link name="${name}_depth_frame">
+    </link>
+
+    <joint name="${name}_depth_joint" type="fixed">
+      <parent link="${name}_link"/>
+      <child link="${name}_depth_frame"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Depth Optical Frame -->
+    <link name="${name}_depth_optical_frame">
+    </link>
+
+    <joint name="${name}_depth_optical_joint" type="fixed">
+      <parent link="${name}_depth_frame"/>
+      <child link="${name}_depth_optical_frame"/>
+      <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <!-- Color Camera Frame -->
+    <link name="${name}_color_frame">
+    </link>
+
+    <joint name="${name}_color_joint" type="fixed">
+      <parent link="${name}_link"/>
+      <child link="${name}_color_frame"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Color Optical Frame -->
+    <link name="${name}_color_optical_frame">
+    </link>
+
+    <joint name="${name}_color_optical_joint" type="fixed">
+      <parent link="${name}_color_frame"/>
+      <child link="${name}_color_optical_frame"/>
+      <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+  </xacro:macro>
+
+  <!-- Gazebo Plugins for D435 -->
+  <xacro:macro name="d435_gazebo_plugins" params="name">
+    
+    <!-- RGB Camera Plugin -->
+    <gazebo reference="${name}_color_frame">
+      <sensor type="camera" name="${name}_color_sensor">
+        <always_on>true</always_on>
+        <update_rate>30.0</update_rate>
+        <camera>
+          <!-- Real D435 RGB specifications -->
+          <horizontal_fov>1.204</horizontal_fov>  <!-- 69 degrees -->
+          <image>
+            <width>1920</width>  <!-- D435 RGB resolution -->
+            <height>1080</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <ros>
+            <namespace></namespace>
+            <remapping>image_raw:=${name}/color/image_raw</remapping>
+            <remapping>camera_info:=${name}/color/camera_info</remapping>
+          </ros>
+          <camera_name>${name}_color</camera_name>
+          <frame_name>${name}_color_optical_frame</frame_name>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+    <!-- Depth Camera Plugin -->
+    <gazebo reference="${name}_depth_frame">
+      <sensor type="depth" name="${name}_depth_sensor">
+        <always_on>true</always_on>
+        <update_rate>30.0</update_rate>
+        <camera>
+          <!-- Real D435 depth specifications -->
+          <horizontal_fov>1.518</horizontal_fov>  <!-- 87 degrees -->
+          <image>
+            <width>1280</width>  <!-- D435 max depth resolution -->
+            <height>720</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.28</near>  <!-- D435 min depth distance: ~28cm -->
+            <far>10.0</far>    <!-- D435 max range: up to 10m -->
+          </clip>
+        </camera>
+        <plugin name="depth_camera_controller" filename="libgazebo_ros_depth_camera.so">
+          <ros>
+            <namespace></namespace>
+            <remapping>depth/image_raw:=${name}/depth/image_raw</remapping>
+            <remapping>depth/camera_info:=${name}/depth/camera_info</remapping>
+            <remapping>points:=${name}/depth/points</remapping>
+          </ros>
+          <camera_name>${name}_depth</camera_name>
+          <frame_name>${name}_depth_optical_frame</frame_name>
+          <min_depth>0.28</min_depth>
+          <max_depth>10.0</max_depth>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot> 

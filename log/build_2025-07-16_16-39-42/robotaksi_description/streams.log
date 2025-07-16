@@ -1,0 +1,62 @@
+[0.575s] Invoking command in '/home/hilal/ros2_ws/src/robotaksi_description': PYTHONPATH=/home/hilal/ros2_ws/build/robotaksi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotaksi_description build --build-base /home/hilal/ros2_ws/build/robotaksi_description/build install --record /home/hilal/ros2_ws/build/robotaksi_description/install.log --install-scripts $base/lib/robotaksi_description --single-version-externally-managed install_data
+[0.714s] /home/hilal/.local/lib/python3.10/site-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.714s]   warnings.warn(
+[0.731s] running egg_info
+[0.731s] creating ../../build/robotaksi_description/robotaksi_description.egg-info
+[0.731s] writing ../../build/robotaksi_description/robotaksi_description.egg-info/PKG-INFO
+[0.731s] writing dependency_links to ../../build/robotaksi_description/robotaksi_description.egg-info/dependency_links.txt
+[0.731s] writing entry points to ../../build/robotaksi_description/robotaksi_description.egg-info/entry_points.txt
+[0.731s] writing requirements to ../../build/robotaksi_description/robotaksi_description.egg-info/requires.txt
+[0.732s] writing top-level names to ../../build/robotaksi_description/robotaksi_description.egg-info/top_level.txt
+[0.732s] writing manifest file '../../build/robotaksi_description/robotaksi_description.egg-info/SOURCES.txt'
+[0.732s] reading manifest file '../../build/robotaksi_description/robotaksi_description.egg-info/SOURCES.txt'
+[0.733s] writing manifest file '../../build/robotaksi_description/robotaksi_description.egg-info/SOURCES.txt'
+[0.733s] running build
+[0.733s] running build_py
+[0.733s] creating /home/hilal/ros2_ws/build/robotaksi_description/build
+[0.733s] creating /home/hilal/ros2_ws/build/robotaksi_description/build/lib
+[0.733s] creating /home/hilal/ros2_ws/build/robotaksi_description/build/lib/robotaksi_description
+[0.733s] copying robotaksi_description/__init__.py -> /home/hilal/ros2_ws/build/robotaksi_description/build/lib/robotaksi_description
+[0.734s] running install
+[0.734s] running install_lib
+[0.734s] creating /home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description
+[0.734s] copying /home/hilal/ros2_ws/build/robotaksi_description/build/lib/robotaksi_description/__init__.py -> /home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description
+[0.734s] byte-compiling /home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description/__init__.py to __init__.cpython-310.pyc
+[0.734s] running install_data
+[0.734s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/ament_index
+[0.734s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/ament_index/resource_index
+[0.734s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/ament_index/resource_index/packages
+[0.735s] copying resource/robotaksi_description -> /home/hilal/ros2_ws/install/robotaksi_description/share/ament_index/resource_index/packages
+[0.735s] copying package.xml -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description
+[0.735s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/display.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/gazebo_only.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/sensors_test.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/teleop.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/gazebo_with_controllers.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/gazebo_no_gui.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] copying launch/gazebo.launch.py -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/launch
+[0.735s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.735s] copying urdf/d435_camera.xacro -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/robotaksi.gazebo -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/imu.xacro -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/rplidar_s2.xacro -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/materials.xacro -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/robotaksi.trans -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] copying urdf/robotaksi.xacro -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/urdf
+[0.736s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.736s] copying meshes/left_front_wheel_1.stl -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.737s] copying meshes/base_link.stl -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.740s] copying meshes/left_back_wheel_1.stl -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.741s] copying meshes/right_front_wheel_1.stl -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.743s] copying meshes/right_back_wheel_1.stl -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/meshes
+[0.745s] creating /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/config
+[0.745s] copying config/diff_drive_controller.yaml -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/config
+[0.745s] copying config/gazebo_params.yaml -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/config
+[0.745s] copying config/display.rviz -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/config
+[0.745s] copying config/robotaksi_sim.rviz -> /home/hilal/ros2_ws/install/robotaksi_description/share/robotaksi_description/config
+[0.745s] running install_egg_info
+[0.747s] Copying ../../build/robotaksi_description/robotaksi_description.egg-info to /home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description-0.0.0-py3.10.egg-info
+[0.747s] running install_scripts
+[0.760s] writing list of installed files to '/home/hilal/ros2_ws/build/robotaksi_description/install.log'
+[0.776s] Invoked command in '/home/hilal/ros2_ws/src/robotaksi_description' returned '0': PYTHONPATH=/home/hilal/ros2_ws/build/robotaksi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotaksi_description build --build-base /home/hilal/ros2_ws/build/robotaksi_description/build install --record /home/hilal/ros2_ws/build/robotaksi_description/install.log --install-scripts $base/lib/robotaksi_description --single-version-externally-managed install_data

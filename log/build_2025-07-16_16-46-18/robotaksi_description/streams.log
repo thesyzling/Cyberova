@@ -1,0 +1,22 @@
+[0.613s] Invoking command in '/home/hilal/ros2_ws/src/robotaksi_description': PYTHONPATH=/home/hilal/ros2_ws/build/robotaksi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotaksi_description build --build-base /home/hilal/ros2_ws/build/robotaksi_description/build install --record /home/hilal/ros2_ws/build/robotaksi_description/install.log --install-scripts $base/lib/robotaksi_description --single-version-externally-managed install_data
+[0.755s] /home/hilal/.local/lib/python3.10/site-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.755s]   warnings.warn(
+[0.773s] running egg_info
+[0.773s] writing ../../build/robotaksi_description/robotaksi_description.egg-info/PKG-INFO
+[0.773s] writing dependency_links to ../../build/robotaksi_description/robotaksi_description.egg-info/dependency_links.txt
+[0.773s] writing entry points to ../../build/robotaksi_description/robotaksi_description.egg-info/entry_points.txt
+[0.773s] writing requirements to ../../build/robotaksi_description/robotaksi_description.egg-info/requires.txt
+[0.773s] writing top-level names to ../../build/robotaksi_description/robotaksi_description.egg-info/top_level.txt
+[0.775s] reading manifest file '../../build/robotaksi_description/robotaksi_description.egg-info/SOURCES.txt'
+[0.775s] writing manifest file '../../build/robotaksi_description/robotaksi_description.egg-info/SOURCES.txt'
+[0.775s] running build
+[0.775s] running build_py
+[0.775s] running install
+[0.776s] running install_lib
+[0.776s] running install_data
+[0.777s] running install_egg_info
+[0.778s] removing '/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description-0.0.0-py3.10.egg-info' (and everything under it)
+[0.778s] Copying ../../build/robotaksi_description/robotaksi_description.egg-info to /home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages/robotaksi_description-0.0.0-py3.10.egg-info
+[0.778s] running install_scripts
+[0.791s] writing list of installed files to '/home/hilal/ros2_ws/build/robotaksi_description/install.log'
+[0.811s] Invoked command in '/home/hilal/ros2_ws/src/robotaksi_description' returned '0': PYTHONPATH=/home/hilal/ros2_ws/build/robotaksi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/hilal/ros2_ws/install/robotaksi_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotaksi_description build --build-base /home/hilal/ros2_ws/build/robotaksi_description/build install --record /home/hilal/ros2_ws/build/robotaksi_description/install.log --install-scripts $base/lib/robotaksi_description --single-version-externally-managed install_data

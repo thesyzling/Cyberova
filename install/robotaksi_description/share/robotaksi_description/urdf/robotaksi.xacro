@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<robot name="robotaksi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robotaksi_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robotaksi_description)/urdf/robotaksi.trans" />
+<xacro:include filename="$(find robotaksi_description)/urdf/robotaksi.gazebo" />
+<xacro:include filename="$(find robotaksi_description)/urdf/rplidar_s2.xacro" />
+<xacro:include filename="$(find robotaksi_description)/urdf/d435_camera.xacro" />
+<xacro:include filename="$(find robotaksi_description)/urdf/imu.xacro" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.1074951298836988 0.596665606298139 0.21482217738307136" rpy="0 0 0"/>
+    <mass value="468.7856724360145"/>
+    <inertia ixx="43.61343" iyy="155.150613" izz="190.338008" ixy="0.118086" iyz="0.000822" ixz="-2.637397"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="teker1_v1_1">
+  <inertial>
+    <origin xyz="7.281935054948008e-08 0.05823381094535307 -4.525301861013631e-08" rpy="0 0 0"/>
+    <mass value="91.12805244462666"/>
+    <inertia ixx="2.594068" iyy="5.072499" izz="2.594069" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.85 -1.097971 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="1.85 -1.097971 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="teker1_v1__1__1">
+  <inertial>
+    <origin xyz="6.692394793894607e-08 0.05823327338573292 -7.95713923085195e-08" rpy="0 0 0"/>
+    <mass value="91.12805244462666"/>
+    <inertia ixx="2.594068" iyy="5.072499" izz="2.594069" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.45 -1.097972 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.45 -1.097972 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="teker1_v1__3__1">
+  <inertial>
+    <origin xyz="4.7911880907136606e-08 -0.058233285436342264 -1.206452840407657e-07" rpy="0 0 0"/>
+    <mass value="91.12805244462666"/>
+    <inertia ixx="2.594068" iyy="5.072499" izz="2.594069" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="1.85 -0.102028 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="1.85 -0.102028 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="teker1_v1__2__1">
+  <inertial>
+    <origin xyz="1.77460707240229e-08 -0.058233320280351324 -1.166010933362216e-07" rpy="0 0 0"/>
+    <mass value="91.12805244462666"/>
+    <inertia ixx="2.594068" iyy="5.072499" izz="2.594069" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.45 -0.102028 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.45 -0.102028 -0.307326" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotaksi_description)/meshes/teker1_v1__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="left_back" type="continuous">
+  <origin xyz="-1.85 1.097971 0.307326" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="teker1_v1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_front" type="continuous">
+  <origin xyz="-0.45 1.097972 0.307326" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="teker1_v1__1__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_back" type="continuous">
+  <origin xyz="-1.85 0.102028 0.307326" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="teker1_v1__3__1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="right_front" type="continuous">
+  <origin xyz="-0.45 0.102028 0.307326" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="teker1_v1__2__1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<!-- ros2_control -->
+<ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+  <joint name="left_front">
+    <command_interface name="velocity">
+      <param name="min">-10</param>
+      <param name="max">10</param>
+    </command_interface>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="left_back">
+    <command_interface name="velocity">
+      <param name="min">-10</param>
+      <param name="max">10</param>
+    </command_interface>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="right_front">
+    <command_interface name="velocity">
+      <param name="min">-10</param>
+      <param name="max">10</param>
+    </command_interface>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+  <joint name="right_back">
+    <command_interface name="velocity">
+      <param name="min">-10</param>
+      <param name="max">10</param>
+    </command_interface>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+</ros2_control>
+
+<!-- Intel RealSense D435 Camera - last_description pozisyonunda -->
+<xacro:realsense_d435 parent="base_link" name="camera" xyz="1.05 0.6 0.34" rpy="0 0 0"/>
+
+<!-- RPLidar S2 - last_description pozisyonunda -->
+<xacro:rplidar_s2 parent="base_link" name="lidar" xyz="1.25 0.6 0.34" rpy="0 0 0"/>
+
+<!-- IMU Sensor - base_link üzerinde -->
+<xacro:imu_sensor parent="base_link" name="imu"/>
+
+<!-- Include sensor plugins -->
+<xacro:d435_gazebo_plugins name="camera"/>
+<xacro:rplidar_s2_gazebo_plugin name="lidar"/>
+
+</robot>

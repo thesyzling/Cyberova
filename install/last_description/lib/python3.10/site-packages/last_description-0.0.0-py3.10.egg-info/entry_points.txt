@@ -1,0 +1,8 @@
+[console_scripts]
+cmd_vel_publisher = last_description.controller:main
+cmd_vel_subscriber = last_description.subscriber:main
+controller = last_description.controller:main
+joint_state_publisher = last_description.joint_state_publisher:main
+robot_state_publisher = last_description.robot_state_publisher:main
+rviz2 = last_description.rviz2:main
+
