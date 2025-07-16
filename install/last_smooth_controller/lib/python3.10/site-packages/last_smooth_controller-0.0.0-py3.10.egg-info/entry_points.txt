@@ -1,3 +1,0 @@
-[console_scripts]
-set_initial_pose = last_smooth_controller.scripts.set_initial_pose:main
-
